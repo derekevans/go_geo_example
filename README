@@ -1,0 +1,10 @@
+# PostGIS backend
+Load planting and harvest data into PostGIS
+
+# Go API
+Takes planting and harvest data uploaded to API
+Transforms the data and loads into database
+Associates harvest points with planting points
+
+Returns csv of planting metrics for each harvest point for a field
+

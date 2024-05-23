@@ -1,0 +1,18 @@
+
+docker: docker/build/no_cache docker/start
+
+# Start docker containers
+docker/start:
+	docker compose -f ./docker/compose.yml up -d
+
+# Stop docker containers
+docker/stop:
+	docker compose -f ./docker/compose.yml down
+
+# Build docker images
+docker/build:
+	docker compose -f ./docker/compose.yml build
+
+# Build docker images without cache
+docker/build/no_cache:
+	docker compose -f ./docker/compose.yml build --no-cache

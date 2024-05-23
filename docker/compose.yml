@@ -1,0 +1,38 @@
+name: "go_geo"
+
+services:
+
+  ubuntu:
+    image: go_geo-ubuntu:latest
+    container_name: go_geo-ubuntu
+    build: 
+      context: ./
+      dockerfile: ./ubuntu/Dockerfile
+    tty: true
+    stdin_open: true
+    volumes:
+      - type: bind
+        source: ..
+        target: /home/ubuntu/go_geo
+      - go_geo-data:/home/ubuntu/data
+
+  postgis:
+    image: postgis/postgis
+    command: -c config_file=/etc/postgresql/postgresql.conf
+    shm_size: 256mb
+    container_name: go_geo-postgis
+    ports:
+      - "5434:5432"
+    volumes:
+      - go_geo-db:/var/lib/postgresql/data
+      - type: bind
+        source: ./postgis/postgres.conf
+        target: /etc/postgresql/postgresql.conf
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: postgres
+      PGDATA: /var/lib/postgresql/data/pgdata
+
+volumes:
+  go_geo-data:
+  go_geo-db:

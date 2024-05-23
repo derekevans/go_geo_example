@@ -1,0 +1,14 @@
+
+ubuntu_container := go_geo-ubuntu
+
+# Attach to ubuntu container
+ubuntu/attach:
+	docker exec -it $(ubuntu_container) /bin/bash
+
+# Attach to ubuntu container as root user
+ubuntu/attach/root:
+	docker exec -u root -it $(ubuntu_container) /bin/bash
+
+# Save container changes to image
+ubuntu/commit:
+	docker commit $(ubuntu_container)
