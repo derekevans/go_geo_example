@@ -14,7 +14,7 @@ cd path/to/go_geo_example
 make docker
 make ubuntu/attach
 make db/init go/build
-geo load ./assets/example_data
+geo load --dir ./assets/example_data
 ```
 
 ## Tech Stack
