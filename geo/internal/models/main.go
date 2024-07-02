@@ -1,3 +1,5 @@
+
+// Application data models
 package models
 
 import (

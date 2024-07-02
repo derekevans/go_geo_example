@@ -1,9 +1,7 @@
 
 package cmd
 
-import (
-	// "fmt"
-	
+import (	
 	"geo/internal/load"
 	"github.com/spf13/cobra"
 )

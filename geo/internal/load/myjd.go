@@ -18,9 +18,19 @@ import (
 
 // Load data from directory into the PostGIS database.
 // The following folder structure and files must be present:
-// {inDir}/Planting/*.shp
-// {inDir}/Planting/*.json
-// {inDir}/Harvest/*.shp
+// {inDir}
+// ├── Harvest
+// │   ├── *.dbf
+// │   ├── *.json
+// │   ├── *.prj
+// │   ├── *.shp
+// │   └── *.shx
+// └── Planting
+//     ├── *.dbf
+//     ├── *.json
+//     ├── *.prj
+//     ├── *.shp
+//     └── *.shx
 func LoadMyJD(inDir string) {
     db := pg.Connect(&pg.Options{
         Addr: "postgis:5432",
@@ -58,8 +68,8 @@ func LoadMyJD(inDir string) {
     
     commit(tx)
 
-    fmt.Println(len(plantingPts), "planting points successfully loaded.")
-    fmt.Println(len(harvestPts), "harvest points successfully loaded.")
+    fmt.Println(len(plantingPts), "of", getNumPlantingPts(db, field), "planting points loaded.")
+    fmt.Println(len(harvestPts), "of", getNumHarvestPts(db, field), "harvest points loaded.")
     fmt.Println("Load complete!")
 }
 
@@ -287,4 +297,14 @@ func commit(tx *pg.Tx) {
         tx.Rollback()
         panic(err)
     }
+}
+
+func getNumPlantingPts(db *pg.DB, field models.Field) int {
+    count, _ := db.Model(new(models.PlantingPt)).Where("field_id = ?", field.Id).Count()
+    return count
+}
+
+func getNumHarvestPts(db *pg.DB, field models.Field) int {
+    count, _ := db.Model(new(models.HarvestPt)).Where("field_id = ?", field.Id).Count()
+    return count
 }
