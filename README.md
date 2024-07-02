@@ -73,7 +73,7 @@ geo load ./assets/example_data
 ```
 
 ### Debug
-To debug the code via VSCode:
+To debug via VSCode:
 
 1. Install Go on your machine.  
 2. Install the Go VSCode extension.  
