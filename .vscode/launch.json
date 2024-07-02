@@ -1,0 +1,24 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "apiVersion": 1,
+            "name": "Connect to server",
+            "type": "go",
+            "request": "attach",
+            "mode": "remote",
+            "substitutePath": [
+                {
+                    "from": "/home/lab/Development/go_geo_example/geo/load.go",
+                    "to": "/home/ubuntu/go_geo/geo/load.go"
+                }
+            ],
+            "port": 4040,
+            "host": "localhost"
+        }
+    ]
+}

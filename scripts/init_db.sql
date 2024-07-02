@@ -23,16 +23,23 @@ CREATE TABLE fields (
     name text
 );
 
-CREATE SEQUENCE crop_id_seq;
+CREATE SEQUENCE crops_id_seq;
 
 CREATE TABLE crops (
-    id integer DEFAULT nextval('fields_id_seq'::regclass) PRIMARY KEY,
+    id integer DEFAULT nextval('crops_id_seq'::regclass) PRIMARY KEY,
     name text
 );
 
 INSERT INTO crops (name) VALUES 
 	('Corn'),
 	('Soybeans');
+
+CREATE SEQUENCE varieties_id_seq;
+
+CREATE TABLE varieties (
+    id integer DEFAULT nextval('varieties_id_seq'::regclass) PRIMARY KEY,
+    name text
+);
 
 CREATE SEQUENCE planting_pts_id_seq;
 

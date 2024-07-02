@@ -8,7 +8,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=Etc/UTC
 
 # Install tools 
-RUN apt-get install build-essential software-properties-common cmake wget tzdata postgresql-client libpq-dev vim -y
+RUN apt-get install build-essential software-properties-common cmake wget tzdata git postgresql-client libpq-dev vim -y
 
 # Install Go
 RUN mkdir -p /software/go && \
@@ -26,8 +26,9 @@ WORKDIR $HOME
 RUN mkdir $HOME/data
 RUN mkdir $HOME/go_geo
 
-# Add Go to PATH
-ENV PATH=PATH=$PATH:/usr/local/go/bin
+# Configure Go
+ENV PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
+RUN go install github.com/go-delve/delve/cmd/dlv@latest
 
 # Create .pgpass and add permission
 RUN touch $HOME/.pgpass && \

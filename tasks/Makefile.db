@@ -1,3 +1,3 @@
 
-pipeline/init_db:
+db/init:
 	psql -h postgis -U postgres -f ./scripts/init_db.sql

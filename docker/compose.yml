@@ -5,9 +5,13 @@ services:
   ubuntu:
     image: go_geo-ubuntu:latest
     container_name: go_geo-ubuntu
+    ports:
+      - "4040:4040"
     build: 
       context: ./
       dockerfile: ./ubuntu/Dockerfile
+    security_opt:
+      - seccomp:unconfined
     tty: true
     stdin_open: true
     volumes:
