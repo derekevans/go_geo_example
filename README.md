@@ -72,6 +72,21 @@ make docker/attach
 geo load ./assets/example_data
 ```
 
+Below is an example of the output during loader execution:
+
+```console
+Loading MyJohnDeere data from ./assets/example_data
+Parsing metadata from assets/example_data/Planting/Merriweather Farms-JT-01-Soybeans-Deere-Metadata.json
+Farm: JT
+Field: 01
+Crop: Soybeans
+Loading planting data from assets/example_data/Planting/Merriweather Farms-JT-01-Soybeans.shp
+Loading harvest data from assets/example_data/Harvest/Merriweather Farms-JT-01-Soybeans.shp
+55285 of 55285 planting points loaded.
+40960 of 40960 harvest points loaded.
+Load complete!
+```
+
 ### Debug
 To debug via VSCode:
 
