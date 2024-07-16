@@ -159,8 +159,8 @@ func parsePlantingPts(tx *pg.Tx, path string, field models.Field, crop models.Cr
         distanceFt, _ := strconv.ParseFloat(shape.ReadAttribute(featureIdx, fieldMap["DISTANCE"]), 64)
         headingDeg, _ := strconv.ParseFloat(shape.ReadAttribute(featureIdx, fieldMap["Heading"]), 64)
         elevationFt, _ := strconv.ParseFloat(shape.ReadAttribute(featureIdx, fieldMap["Elevation"]), 64)
-        targetRate, _ := strconv.ParseFloat(shape.ReadAttribute(featureIdx, fieldMap["AppliedRate"]), 64)
-        appliedRate, _ := strconv.ParseFloat(shape.ReadAttribute(featureIdx, fieldMap["TargetRate"]), 64)
+        targetRate, _ := strconv.ParseFloat(shape.ReadAttribute(featureIdx, fieldMap["TargetRate"]), 64)
+        appliedRate, _ := strconv.ParseFloat(shape.ReadAttribute(featureIdx, fieldMap["AppliedRate"]), 64)
 
         plantingPt := models.PlantingPt{
             FieldId: field.Id,

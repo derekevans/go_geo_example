@@ -66,7 +66,6 @@ CREATE SEQUENCE harvest_pts_id_seq;
 
 CREATE TABLE harvest_pts (
     id integer DEFAULT nextval('harvest_pts_id_seq'::regclass) PRIMARY KEY,
-    planting_pt_id integer,
 	field_id integer,
 	crop_id integer,
 	time timestamp,

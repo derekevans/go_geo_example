@@ -87,6 +87,14 @@ Loading harvest data from assets/example_data/Harvest/Merriweather Farms-JT-01-S
 Load complete!
 ```
 
+The data loaded into PostGIS can also be viewed in QGIS (Figures 1 and 2).
+
+![Planting Data](./assets/images/planting_pts.png)
+**Figure 1.** Planting data viewed in QGIS and symbolized by applied seeds per acre. Red indicates a lower number of seeds applied per acre while blue indicates a higher number of seeds applied per acre.
+
+![Harvest Data](./assets/images/harvest_pts.png)
+**Figure 2.** Harvest data viewed in QGIS and symbolized by crop yield in bushels per acre. Red indicates low crop yield while green indicates high crop yield.
+
 ### Debug
 To debug via VSCode:
 
